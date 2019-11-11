@@ -1,9 +1,4 @@
 ﻿using OpenQA.Selenium.Appium.Windows;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WinAppDriver.PageObjects
 {
@@ -13,8 +8,7 @@ namespace WinAppDriver.PageObjects
         WindowsElement btnChangeCalculatorView => WindowsDriver.FindElementByAccessibilityId("TogglePaneButton");
         WindowsElement calculatorViewList => WindowsDriver.FindElementByAccessibilityId("MenuItemsHost");
         public string GetResult()
-        {
-            Console.WriteLine(BasePage.WindowsDriver);
+        {            
             return resultDisplay.Text;
         }
 

@@ -9,6 +9,10 @@ namespace WinAppDriver.StepDefinations
     public class CalculatorAdditionSteps
     {
         private static TestInitialise testInitialise;
+        private static OperatorsPad operatorsPad;
+        private static NumberPad numberPad;
+        private static CommonObjects commonObjects;
+
         [Given(@"Launch calculator Application")]
         public void GivenLaunchCalculatorApplication()
         {
@@ -22,21 +26,21 @@ namespace WinAppDriver.StepDefinations
         [Given(@"I have entered (.*) into the calculator")]
         public void GivenIHaveEnteredIntoTheCalculator(int p0)
         {
-            NumberPad numberPad = new NumberPad();
+            numberPad = new NumberPad();
             numberPad.PressNumber(p0.ToString());
         }
 
         [When(@"I press add")]
         public void WhenIPressAdd()
         {
-            OperatorsPad operatorsPad = new OperatorsPad();
+            operatorsPad = new OperatorsPad();
             operatorsPad.EnterOperator("Plus");
         }
 
         [Then(@"the result should be (.*) on the screen")]
         public void ThenTheResultShouldBeOnTheScreen(int p0)
         {
-            CommonObjects commonObjects = new CommonObjects();
+            commonObjects = new CommonObjects();
             string result = commonObjects.GetResult();
             Assert.IsTrue(result.Contains(p0.ToString()));
         }
@@ -44,14 +48,14 @@ namespace WinAppDriver.StepDefinations
         [Given(@"I press add")]
         public void GivenIPressAdd()
         {
-            OperatorsPad operatorsPad = new OperatorsPad();
+            operatorsPad = new OperatorsPad();
             operatorsPad.EnterOperator("Plus");
         }
 
         [Given(@"I click Equals")]
         public void GivenIClickEquals()
         {
-            OperatorsPad operatorsPad = new OperatorsPad();
+            operatorsPad = new OperatorsPad();
             operatorsPad.EnterOperator("Equals");
         }
 
